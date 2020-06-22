@@ -26,6 +26,7 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
     'no-use-before-define': [0, { functions: true, classes: true }],
+    'react/prop-types': ['error', { ignore: ['navigation'] }],
   },
   settings: {
     'import/resolver': {

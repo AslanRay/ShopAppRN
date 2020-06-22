@@ -1,11 +1,11 @@
 import React from 'react';
-import {} from '@react-navigation/native';
+import {Button, Text} from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import { Platform } from 'react-native';
+// import { createDrawerNavigator } from '@react-navigation/drawer';
+import { Platform, Alert } from 'react-native';
 import ProductOverviewScreen, { productOverviewNavigationOptions } from '../screens/shop/ProductsOverviewScreen';
 import ProductDetailsScreen from '../screens/shop/ProductDetailsScreen';
-import CartScreen from '../screens/shop/CartScreen';
+// import CartScreen from '../screens/shop/CartScreen';
 import Colors from '../constants/Colors';
 
 const defaultNavOptions = {
@@ -17,20 +17,25 @@ const defaultNavOptions = {
 
 const ProductsStackNavigator = createStackNavigator();
 
-export const ProductsNavigator = () => (
+const ProductsNavigator = () => (
   <ProductsStackNavigator.Navigator screenOptions={defaultNavOptions}>
     <ProductsStackNavigator.Screen
       name="ProductsOverview"
       component={ProductOverviewScreen}
       options={productOverviewNavigationOptions}
     />
-    {/* <ProductsStackNavigator.Screen
+    <ProductsStackNavigator.Screen
       name="ProductDetail"
       component={ProductDetailsScreen}
+      options={({ route }) => ({
+        title: route.params.productTitle,
+      })}
     />
-    <ProductsStackNavigator.Screen
+    {/* <ProductsStackNavigator.Screen
       name="Cart"
       component={CartScreen}
     /> */}
   </ProductsStackNavigator.Navigator>
 );
+
+export default ProductsNavigator;

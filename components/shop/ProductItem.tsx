@@ -5,6 +5,7 @@ import {
 } from 'react-native';
 import { heightPercentageToDP as hp, widthPercentageToDP as wp } from 'react-native-responsive-screen';
 import Colors from '../../constants/Colors';
+import Fonts from '../../constants/Fonts';
 
 type TProduct = {
   image: string,
@@ -63,6 +64,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: wp('5%'),
     marginVertical: hp('0.5%'),
+    fontFamily: Fonts.OpenSansBold,
   },
   price: {
     fontSize: wp('4%'),
