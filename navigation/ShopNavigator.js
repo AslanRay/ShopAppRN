@@ -7,12 +7,19 @@ import ProductOverviewScreen, { productOverviewNavigationOptions } from '../scre
 import ProductDetailsScreen from '../screens/shop/ProductDetailsScreen';
 // import CartScreen from '../screens/shop/CartScreen';
 import Colors from '../constants/Colors';
+import Fonts from '../constants/Fonts';
 
 const defaultNavOptions = {
   headerStyle: {
     backgroundColor: Platform.OS === 'android' ? Colors.primary : '',
   },
   headerTintColor: Platform.OS === 'android' ? Colors.navigationTextTitle : Colors.primary,
+  headerTitleStyle: {
+    fontFamily: Fonts.OpenSansBold,
+  },
+  headerBackTitleStyle: {
+    fontFamily: Fonts.OpenSansRegular,
+  },
 };
 
 const ProductsStackNavigator = createStackNavigator();

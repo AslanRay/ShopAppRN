@@ -1,10 +1,13 @@
 import React, { useLayoutEffect } from 'react';
 import {
-  Text, View, StyleSheet, Button, Alert,
+  Text, View, StyleSheet, Button, Alert, ScrollView, Image,
 } from 'react-native';
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import { addToCart } from '../../redux/cart';
 import Colors from '../../constants/Colors';
+import Fonts from '../../constants/Fonts';
 
 const ProductDetailsScreen = ({
   route,
@@ -19,10 +22,22 @@ const ProductDetailsScreen = ({
   const { productId } = route.params;
   const selectedProduct = useSelector((state) => state.productReducer.availableProducts
     .find((product) => product.id === productId));
+  const dispatch = useDispatch();
   return (
-    <View>
-      <Text>{JSON.stringify(selectedProduct)}</Text>
-    </View>
+    <ScrollView>
+      <Image style={styles.image} source={{ uri: selectedProduct.imageUrl }} />
+      <View style={styles.actions}>
+        <Button
+          title="Add to cart"
+          color={Colors.primary}
+          onPress={() => {
+            dispatch(addToCart(selectedProduct));
+          }}
+        />
+      </View>
+      <Text style={styles.price}>{`$${selectedProduct.price.toFixed(2)}`}</Text>
+      <Text style={styles.description}>{selectedProduct.description}</Text>
+    </ScrollView>
   );
 };
 
@@ -39,7 +54,27 @@ ProductDetailsScreen.propTypes = {
 };
 
 const styles = StyleSheet.create({
-
+  actions: {
+    marginVertical: hp('2%'),
+    alignItems: 'center',
+  },
+  image: {
+    width: wp('100%'),
+    height: hp('40%'),
+  },
+  price: {
+    fontSize: wp('6%'),
+    color: '#888',
+    textAlign: 'center',
+    marginVertical: hp('1%'),
+    fontFamily: Fonts.OpenSansBold,
+  },
+  description: {
+    fontSize: wp('4.5%'),
+    textAlign: 'center',
+    marginHorizontal: wp('5%'),
+    fontFamily: Fonts.OpenSansRegular,
+  },
 });
 
 export default ProductDetailsScreen;

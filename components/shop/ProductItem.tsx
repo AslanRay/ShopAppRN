@@ -69,6 +69,7 @@ const styles = StyleSheet.create({
   price: {
     fontSize: wp('4%'),
     color: '#888',
+    fontFamily: Fonts.OpenSansRegular,
   },
   actions: {
     flexDirection: 'row',

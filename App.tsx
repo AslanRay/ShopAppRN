@@ -7,11 +7,12 @@ import {
 import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 import { productReducer } from './redux/product';
-import ProductOverviewScreen from './screens/shop/ProductsOverviewScreen';
+import { cartReducer } from './redux/cart';
 import AppNavigator from './navigation/AppNavigator';
 
 const rootReducer = combineReducers({
   productReducer,
+  cartReducer,
 });
 
 const store = createStore(rootReducer);
