@@ -5,7 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { Platform, Alert } from 'react-native';
 import ProductOverviewScreen, { productOverviewNavigationOptions } from '../screens/shop/ProductsOverviewScreen';
 import ProductDetailsScreen from '../screens/shop/ProductDetailsScreen';
-// import CartScreen from '../screens/shop/CartScreen';
+import CartScreen from '../screens/shop/CartScreen';
 import Colors from '../constants/Colors';
 import Fonts from '../constants/Fonts';
 
@@ -38,10 +38,10 @@ const ProductsNavigator = () => (
         title: route.params.productTitle,
       })}
     />
-    {/* <ProductsStackNavigator.Screen
+    <ProductsStackNavigator.Screen
       name="Cart"
       component={CartScreen}
-    /> */}
+    />
   </ProductsStackNavigator.Navigator>
 );
 

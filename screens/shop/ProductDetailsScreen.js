@@ -1,6 +1,6 @@
-import React, { useLayoutEffect } from 'react';
+import React from 'react';
 import {
-  Text, View, StyleSheet, Button, Alert, ScrollView, Image,
+  Text, View, StyleSheet, Button, ScrollView, Image,
 } from 'react-native';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
@@ -11,14 +11,7 @@ import Fonts from '../../constants/Fonts';
 
 const ProductDetailsScreen = ({
   route,
-  navigation,
 }) => {
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      headerRight: () => (<Button color={Colors.primary} title="LOL" onPress={() => Alert.alert(`${route.params.productTitle}`)} />),
-    });
-  }, [navigation, route.params.productTitle]);
-
   const { productId } = route.params;
   const selectedProduct = useSelector((state) => state.productReducer.availableProducts
     .find((product) => product.id === productId));

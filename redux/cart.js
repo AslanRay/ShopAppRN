@@ -15,7 +15,7 @@ const initialState = {
 export const cartReducer = (state = initialState, action) => {
   let updatedOrNewCartItem;
   switch (action.type) {
-    case ADD_TO_CART:
+    case ADD_TO_CART: {
       const addedProduct = action.product;
       const productPrice = addedProduct.price;
       const productTitle = addedProduct.title;
@@ -37,6 +37,7 @@ export const cartReducer = (state = initialState, action) => {
         },
         totalAmount: state.totalAmount + productPrice,
       };
+    }
     default:
       return state;
   }

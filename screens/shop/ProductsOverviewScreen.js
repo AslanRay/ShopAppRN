@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
 import { FlatList } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import Proptype from 'prop-types';
 import { addToCart } from '../../redux/cart';
 import ProductItem from '../../components/shop/ProductItem.tsx';
+import CartHeaderButton from '../../components/ui/HeaderButton';
 
 const ProductOverviewScreen = ({ navigation }) => {
   const products = useSelector((state) => state.productReducer.availableProducts);
   const dispatch = useDispatch();
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerRight: () => (<CartHeaderButton />),
+    });
+  }, [navigation]);
   return (
     <FlatList
       data={products}

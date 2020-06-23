@@ -5,7 +5,12 @@ type TCartItem = {
   sum: number,
 }
 
-const productItem = (quantity: number, productPrice: number, productTitle: string, sum: number): TCartItem => ({
+const productItem = (
+  quantity: number,
+  productPrice: number,
+  productTitle: string,
+  sum: number,
+): TCartItem => ({
   quantity,
   productPrice,
   productTitle,
