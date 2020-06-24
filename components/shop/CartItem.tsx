@@ -10,11 +10,12 @@ type TCartItem = {
   quantity: number,
   title: string,
   amount: number,
-  onRemove: (x: any) => void
+  onRemove?: (x: any) => void,
+  deletable?: boolean
 }
 
 const CartItem = ({
-  quantity, title, amount, onRemove,
+  quantity, title, amount, onRemove, deletable,
 }: TCartItem) => (
   <View style={styles.cartItem}>
     <View style={styles.itemData}>
@@ -23,6 +24,7 @@ const CartItem = ({
     </View>
     <View style={styles.itemData}>
       <Text style={styles.amount}>{`$${amount.toFixed(2)}`}</Text>
+      { deletable && (
       <TouchableOpacity onPress={onRemove} style={styles.deleteButton}>
         <Icons
           name="ios-trash"
@@ -30,6 +32,7 @@ const CartItem = ({
           size={wp('7%')}
         />
       </TouchableOpacity>
+      )}
     </View>
   </View>
 );

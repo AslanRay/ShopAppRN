@@ -1,34 +1,60 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   View, Text, Button, StyleSheet,
 } from 'react-native';
-import { widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import moment from 'moment';
+import CardItem from './CartItem.tsx';
 import Colors from '../../constants/Colors';
 import Fonts from '../../constants/Fonts';
-import CardItem from './CartItem.tsx';
 
 type TOrderItem = {
   amount: number,
   date: Date,
+  items: [],
 }
 
-const OrderItem = ({ amount, date }: TOrderItem) => (
-  <View style={styles.orderItem}>
-    <View style={styles.summary}>
-      <Text style={styles.totalAmount}>{`$${amount.toFixed(2)}`}</Text>
-      <Text style={styles.date}>
-        {date.toLocaleDateString('en-US', {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric',
-          hour: '2-digit',
-          minute: '2-digit',
-        })}
-      </Text>
+type TCartItem = {
+  productId: string,
+  quantity: number,
+  sum: number,
+  productTitle: string,
+}
+
+const OrderItem = ({ amount, date, items }: TOrderItem) => {
+  const [showDetails, setShowDetails] = useState(false);
+  return (
+    <View style={styles.orderItem}>
+      <View style={styles.summary}>
+        <Text style={styles.totalAmount}>{`$${amount.toFixed(2)}`}</Text>
+        <Text style={styles.date}>
+          {moment(date).format('MMMM Do YYYY, hh:mm')}
+        </Text>
+      </View>
+      <Button
+        title={showDetails ? 'Hide details' : 'Show details'}
+        onPress={() => {
+          setShowDetails((prevState) => !prevState);
+        }}
+        color={Colors.primary}
+      />
+      {
+        showDetails && (
+        <View style={styles.details}>
+          {items.map((cartItem: TCartItem) => (
+            <CardItem
+              key={cartItem.productId}
+              quantity={cartItem.quantity}
+              amount={cartItem.sum}
+              title={cartItem.productTitle}
+            />
+          ))}
+        </View>
+        )
+      }
     </View>
-    <Button title="Show details" onPress={() => {}} color={Colors.primary} />
-  </View>
-);
+  );
+};
 
 const styles = StyleSheet.create({
   orderItem: {
@@ -60,6 +86,9 @@ const styles = StyleSheet.create({
     fontSize: wp('5%'),
     color: '#888',
     paddingRight: wp('7%'),
+  },
+  details: {
+    width: '100%',
   },
 });
 
