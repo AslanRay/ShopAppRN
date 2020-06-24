@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  View, StyleSheet, TouchableOpacity, Alert,
+  View, StyleSheet, TouchableOpacity,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { widthPercentageToDP as wp } from 'react-native-responsive-screen';

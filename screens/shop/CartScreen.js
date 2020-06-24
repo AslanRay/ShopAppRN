@@ -1,11 +1,17 @@
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable semi */
+/* eslint-disable guard-for-in */
 import React from 'react';
 import {
   Text, View, FlatList, Button, StyleSheet,
 } from 'react-native';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import Font from '../../constants/Fonts';
 import Color from '../../constants/Colors';
+import CartItem from '../../components/shop/CartItem.tsx';
+import { removeFromCart } from '../../redux/cart'
+import { addOrder } from '../../redux/orders';
 
 const CartScreen = () => {
   const cartTotalAmount = useSelector((state) => state.cartReducer.totalAmount);
@@ -20,8 +26,10 @@ const CartScreen = () => {
         sum: state.cartReducer.items[key].sum,
       })
     }
-    return cartItemsArray;
+    return cartItemsArray.sort((a, b) => (a.productId > b.productId ? 1 : -1));
   });
+  const dispatch = useDispatch();
+
   return (
     <View style={styles.screen}>
       <View style={styles.summary}>
@@ -31,11 +39,28 @@ const CartScreen = () => {
             {`$${cartTotalAmount.toFixed(2)}`}
           </Text>
         </Text>
-        <Button title="Order now" onPress={() => {}} disabled={cartItems.length === 0} />
+        <Button
+          title="Order now"
+          onPress={() => {
+            dispatch(addOrder(cartItems, cartTotalAmount))
+          }}
+          disabled={cartItems.length === 0}
+        />
       </View>
-      <View>
-        <Text>CART ITEMS FLATLIST</Text>
-      </View>
+      <FlatList
+        data={cartItems}
+        keyExtractor={(key) => key.productId}
+        renderItem={(itemData) => (
+          <CartItem
+            quantity={itemData.item.quantity}
+            title={itemData.item.productTitle}
+            amount={itemData.item.sum}
+            onRemove={() => {
+              dispatch(removeFromCart(itemData.item.productId));
+            }}
+          />
+        )}
+      />
     </View>
   );
 };
