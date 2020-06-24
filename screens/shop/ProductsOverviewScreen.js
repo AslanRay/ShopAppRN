@@ -5,12 +5,14 @@ import Proptype from 'prop-types';
 import { addToCart } from '../../redux/cart';
 import ProductItem from '../../components/shop/ProductItem.tsx';
 import CartHeaderButton from '../../components/ui/HeaderButton';
+import DrawerMenuButton from '../../components/ui/DrawerMenu';
 
 const ProductOverviewScreen = ({ navigation }) => {
   const products = useSelector((state) => state.productReducer.availableProducts);
   const dispatch = useDispatch();
   useLayoutEffect(() => {
     navigation.setOptions({
+      headerLeft: () => (<DrawerMenuButton />),
       headerRight: () => (<CartHeaderButton />),
     });
   }, [navigation]);

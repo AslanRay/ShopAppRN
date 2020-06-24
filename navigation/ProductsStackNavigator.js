@@ -1,8 +1,6 @@
 import React from 'react';
-import {Button, Text} from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-// import { createDrawerNavigator } from '@react-navigation/drawer';
-import { Platform, Alert } from 'react-native';
+import { Platform } from 'react-native';
 import ProductOverviewScreen, { productOverviewNavigationOptions } from '../screens/shop/ProductsOverviewScreen';
 import ProductDetailsScreen from '../screens/shop/ProductDetailsScreen';
 import CartScreen from '../screens/shop/CartScreen';
@@ -41,6 +39,7 @@ const ProductsNavigator = () => (
     <ProductsStackNavigator.Screen
       name="Cart"
       component={CartScreen}
+      options={{ title: 'Your cart' }}
     />
   </ProductsStackNavigator.Navigator>
 );

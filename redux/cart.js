@@ -2,6 +2,7 @@ import CartItem from '../models/cartItem.ts';
 
 const ADD_TO_CART = 'ADD_TO_CART';
 const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
+const ADD_ORDER = 'ADD_ORDER';
 
 export const addToCart = (product) => ({
   type: ADD_TO_CART,
@@ -66,6 +67,8 @@ export const cartReducer = (state = initialState, action) => {
         totalAmount: Math.abs(state.totalAmount - selectedCartItem.productPrice),
       };
     }
+    case ADD_ORDER:
+      return initialState;
     default:
       return state;
   }
