@@ -37,7 +37,7 @@ const EditProductScreen = ({ navigation, route }) => {
       dispatch(createProduct(title, imageUrl, description, +price));
     }
     navigation.goBack();
-  }, [description, dispatch, editedProduct, imageUrl, price, productId, title]);
+  }, [description, dispatch, editedProduct, imageUrl, price, productId, title, navigation]);
   return (
     <ScrollView>
       <View style={styles.form}>
