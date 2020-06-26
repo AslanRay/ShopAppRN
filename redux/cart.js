@@ -3,6 +3,7 @@ import CartItem from '../models/cartItem.ts';
 const ADD_TO_CART = 'ADD_TO_CART';
 const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
 const ADD_ORDER = 'ADD_ORDER';
+const DELETE_PRODUCT = 'DELETE_PRODUCT';
 
 export const addToCart = (product) => ({
   type: ADD_TO_CART,
@@ -69,6 +70,19 @@ export const cartReducer = (state = initialState, action) => {
     }
     case ADD_ORDER:
       return initialState;
+    case DELETE_PRODUCT: {
+      if (!state.items[action.pid]) {
+        return state;
+      }
+      const updatedItems = { ...state.items };
+      const itemTotal = state.items[action.pid].sum;
+      delete updatedItems[action.pid];
+      return {
+        ...state,
+        items: updatedItems,
+        totalAmount: state.totalAmount - itemTotal,
+      };
+    }
     default:
       return state;
   }

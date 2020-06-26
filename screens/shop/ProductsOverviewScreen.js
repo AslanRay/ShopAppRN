@@ -31,6 +31,7 @@ const ProductOverviewScreen = ({ navigation }) => {
           onAddToCart={() => {
             dispatch(addToCart(itemData.item));
           }}
+          isProductOverViewScreen
         />
       )}
     />

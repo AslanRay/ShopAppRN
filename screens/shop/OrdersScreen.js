@@ -1,5 +1,5 @@
 import React, { useLayoutEffect } from 'react';
-import { FlatList, Text } from 'react-native';
+import { FlatList } from 'react-native';
 import { useSelector } from 'react-redux';
 import DrawerMenuButton from '../../components/ui/DrawerMenu';
 import OrderItem from '../../components/shop/OrderItem.tsx';

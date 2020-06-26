@@ -13,10 +13,22 @@ type TProduct = {
   price: number,
   onViewDetail: (ev: NativeSyntheticEvent<NativeTouchEvent>) => void,
   onAddToCart: (ev: NativeSyntheticEvent<NativeTouchEvent>) => void,
+  isProductOverViewScreen: boolean
+  isUserProductScreen: boolean,
+  onEditProduct: (ev: NativeSyntheticEvent<NativeTouchEvent>) => void,
+  onDeleteProduct: (ev: NativeSyntheticEvent<NativeTouchEvent>) => void,
 }
 
 const ProductItem = ({
-  image, title, price, onViewDetail, onAddToCart,
+  image,
+  title,
+  price,
+  onViewDetail,
+  onAddToCart,
+  isProductOverViewScreen,
+  isUserProductScreen,
+  onDeleteProduct,
+  onEditProduct,
 }: TProduct) => (
   <View style={styles.product}>
     <View style={styles.imageContainer}>
@@ -26,10 +38,18 @@ const ProductItem = ({
       <Text style={styles.title}>{title}</Text>
       <Text style={styles.price}>{`$${price.toFixed(2)}`}</Text>
     </View>
+    {isProductOverViewScreen && (
     <View style={styles.actions}>
       <Button color={Colors.primary} title="View Details" onPress={onViewDetail} />
       <Button color={Colors.primary} title="To Cart" onPress={onAddToCart} />
     </View>
+    )}
+    {isUserProductScreen && (
+    <View style={styles.actions}>
+      <Button color={Colors.primary} title="Edit" onPress={onEditProduct} />
+      <Button color={Colors.primary} title="Delete" onPress={onDeleteProduct} />
+    </View>
+    )}
   </View>
 );
 
