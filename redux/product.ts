@@ -5,12 +5,39 @@ const DELETE_PRODUCT = 'DELETE_PRODUCT';
 const CREATE_PRODUCTO = 'CREATE_PRODUCTO';
 const UPDATE_PRODUCT = 'UPDATE_PRODUCT';
 
-export const deleteProduct = (productId) => ({
+type deleteProductAction = {
+  type: typeof DELETE_PRODUCT,
+  pid: string
+}
+
+type createProductAction = {
+  type: typeof CREATE_PRODUCTO,
+  productData: {
+    title: string,
+    imageUrl: string,
+    description: string,
+    price: number,
+  },
+}
+
+type updateProductAction = {
+  type: typeof UPDATE_PRODUCT,
+  pid: string,
+  productData: {
+    title: string,
+    imageUrl: string,
+    description: string,
+  },
+}
+
+export const deleteProduct = (productId: string): deleteProductAction => ({
   type: DELETE_PRODUCT,
   pid: productId,
 });
 
-export const createProduct = (title, imageUrl, description, price) => ({
+export const createProduct = (
+  title: string, imageUrl: string, description: string, price: number,
+): createProductAction => ({
   type: CREATE_PRODUCTO,
   productData: {
     title,
@@ -20,7 +47,9 @@ export const createProduct = (title, imageUrl, description, price) => ({
   },
 });
 
-export const updateProduct = (id, title, imageUrl, description) => ({
+export const updateProduct = (
+  id: string, title: string, imageUrl: string, description: string,
+): updateProductAction => ({
   type: UPDATE_PRODUCT,
   pid: id,
   productData: {
@@ -30,12 +59,29 @@ export const updateProduct = (id, title, imageUrl, description) => ({
   },
 });
 
-const initialState = {
+type TProduct = {
+  id: string,
+  ownerId: string,
+  title: string,
+  imageUrl: string,
+  description: string,
+  price: number
+}
+
+type TInitialState = {
+  availableProducts: TProduct[],
+  userProducts: any[],
+}
+
+const initialState: TInitialState = {
   availableProducts: PRODUCTS,
-  userProducts: PRODUCTS.filter((product) => product.ownerId === 'u1'),
+  userProducts: PRODUCTS.filter((product: TProduct): boolean => product.ownerId === 'u1'),
 };
 
-export const productReducer = (state = initialState, action) => {
+export const productReducer = (
+  state = initialState,
+  action: deleteProductAction | createProductAction | updateProductAction,
+): TInitialState => {
   switch (action.type) {
     case DELETE_PRODUCT:
       return {
@@ -63,7 +109,8 @@ export const productReducer = (state = initialState, action) => {
       );
       const updatedUserProducts = [...state.userProducts];
       updatedUserProducts[productIndex] = updatedProduct;
-      const availableProductsIndex = state.availableProducts.findIndex((product) => product.id === action.pid);
+      const availableProductsIndex = state.availableProducts
+        .findIndex((product) => product.id === action.pid);
       const updatedAvailableProducts = [...state.availableProducts];
       updatedAvailableProducts[availableProductsIndex] = updatedProduct;
       return {

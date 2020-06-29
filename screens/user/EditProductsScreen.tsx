@@ -1,35 +1,59 @@
-import React, { useLayoutEffect, useState, useEffect, useCallback } from 'react';
+import React, {
+  useLayoutEffect, useState, useCallback,
+} from 'react';
 import {
-  Text, View, ScrollView, StyleSheet, TextInput, Alert,
+  Text, View, ScrollView, StyleSheet, TextInput,
 } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import { ParamListBase, RouteProp } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
 import SaveProductIcon from '../../components/ui/SaveProductIcon';
 import Fonts from '../../constants/Fonts';
 import { createProduct, updateProduct } from '../../redux/product';
 
-const EditProductScreen = ({ navigation, route }) => {
+type navProp = StackNavigationProp<ParamListBase, 'EditProduct'>;
+type routeParamList = {
+  EditProduct: {
+    productId?: string
+  }
+}
+type routeProp = RouteProp<routeParamList, 'EditProduct'>;
+type Props = { navigation: navProp, route: routeProp };
+type TProduct = {
+  id: string,
+  ownerId: string,
+  title: string,
+  imageUrl: string,
+  description: string,
+  price: number
+}
+type RootState = {
+  productReducer: {
+    userProducts: TProduct[]
+  }
+}
+
+const EditProductScreen = ({ navigation, route }: Props) => {
   const productId = route.params?.productId ?? '';
 
-  const editedProduct = useSelector((state) => state.productReducer.userProducts
+  const editedProduct = useSelector((state: RootState) => state.productReducer.userProducts
     .find((product) => product.id === productId));
+
   const [title, setTitle] = useState(editedProduct ? editedProduct.title : '');
+
   const [imageUrl, setImageUrl] = useState(
     editedProduct ? editedProduct.imageUrl : '',
   );
+
   const [price, setPrice] = useState('');
+
   const [description, setDescription] = useState(
     editedProduct ? editedProduct.description : '',
   );
+
   const dispatch = useDispatch();
-  useLayoutEffect(() => {
-    navigation.setOptions({
-      headerTitle: productId ? 'Edit your product' : 'Add your product',
-      headerRight: () => (
-        <SaveProductIcon saveHandler={submitHandler} />
-      ),
-    });
-  }, [navigation, submitHandler, productId, title, imageUrl, description, price]);
+
   const submitHandler = useCallback(() => {
     if (editedProduct) {
       dispatch(updateProduct(productId, title, imageUrl, description));
@@ -38,6 +62,16 @@ const EditProductScreen = ({ navigation, route }) => {
     }
     navigation.goBack();
   }, [description, dispatch, editedProduct, imageUrl, price, productId, title, navigation]);
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerTitle: productId ? 'Edit your product' : 'Add your product',
+      headerRight: () => (
+        <SaveProductIcon saveHandler={submitHandler} />
+      ),
+    });
+  }, [navigation, submitHandler, productId, title, imageUrl, description, price]);
+
   return (
     <ScrollView>
       <View style={styles.form}>

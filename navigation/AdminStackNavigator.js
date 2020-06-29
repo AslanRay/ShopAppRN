@@ -2,7 +2,7 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Platform } from 'react-native';
 import UserProductsScreen from '../screens/user/UserProductsScreen';
-import EditProductScreen from '../screens/user/EditProductsScreen';
+import EditProductScreen from '../screens/user/EditProductsScreen.tsx';
 import Colors from '../constants/Colors';
 import Fonts from '../constants/Fonts';
 

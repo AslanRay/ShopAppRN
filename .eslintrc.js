@@ -27,6 +27,9 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'warn',
     'no-use-before-define': [0, { functions: true, classes: true }],
     'react/prop-types': ['error', { ignore: ['navigation'] }],
+    '@typescript-eslint/no-unused-vars': ['error', {
+      args: 'none',
+    }],
   },
   settings: {
     'import/resolver': {
