@@ -70,7 +70,7 @@ type TProduct = {
 
 type TInitialState = {
   availableProducts: TProduct[],
-  userProducts: any[],
+  userProducts: TProduct[],
 }
 
 const initialState: TInitialState = {

@@ -1,0 +1,20 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-shopapp-dev-132322-authRole",
+            "UnauthRoleArn": "arn:aws:iam::200667970122:role/amplify-shopapp-dev-132322-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::200667970122:role/amplify-shopapp-dev-132322-authRole",
+            "Region": "us-west-2",
+            "DeploymentBucketName": "amplify-shopapp-dev-132322-deployment",
+            "UnauthRoleName": "amplify-shopapp-dev-132322-unauthRole",
+            "StackName": "amplify-shopapp-dev-132322",
+            "StackId": "arn:aws:cloudformation:us-west-2:200667970122:stack/amplify-shopapp-dev-132322/8ab74d80-bfc6-11ea-a01b-0647443c8ece",
+            "AmplifyAppId": "d19cfchyyzfnai"
+        },
+        "categories": {
+            "auth": {
+                "cognito4c86377a": {}
+            }
+        }
+    }
+}

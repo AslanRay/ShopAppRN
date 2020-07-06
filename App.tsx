@@ -4,10 +4,14 @@ import {
 } from 'react-native';
 import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
+import Amplify from 'aws-amplify';
+import config from './aws-exports';
 import { productReducer } from './redux/product';
 import { cartReducer } from './redux/cart';
 import { ordersReducer } from './redux/orders';
 import AppNavigator from './navigation/AppNavigator';
+
+Amplify.configure(config);
 
 const rootReducer = combineReducers({
   productReducer,

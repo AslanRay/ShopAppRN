@@ -41,7 +41,7 @@ const ProductItem = ({
     {isProductOverViewScreen && (
     <View style={styles.actions}>
       <Button color={Colors.primary} title="View Details" onPress={onViewDetail} />
-      <Button color={Colors.primary} title="To Cart" onPress={onAddToCart} />
+      <Button color={Colors.primary} title="Add to Cart" onPress={onAddToCart} />
     </View>
     )}
     {isUserProductScreen && (

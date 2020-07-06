@@ -1,0 +1,14 @@
+{
+	"auth": {
+		"cognito4c86377a": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation"
+		}
+	},
+	"analytics": {
+		"ShopAppPinPoint": {
+			"service": "Pinpoint",
+			"providerPlugin": "awscloudformation"
+		}
+	}
+}
