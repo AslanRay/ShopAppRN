@@ -58,6 +58,7 @@ const styles = StyleSheet.create({
     fontSize: wp('4%'),
     fontFamily: Font.OpenSansBold,
     marginLeft: wp('2%'),
+    width: wp('31%'),
   },
   amount: {
     fontSize: wp('4%'),

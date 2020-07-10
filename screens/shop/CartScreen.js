@@ -6,7 +6,7 @@ import {
   Text, View, FlatList, Button, StyleSheet,
 } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
-import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
+import { widthPercentageToDP as wp } from 'react-native-responsive-screen';
 import Font from '../../constants/Fonts';
 import Color from '../../constants/Colors';
 import CartItem from '../../components/shop/CartItem.tsx';
