@@ -21,6 +21,8 @@
 		663DFD376763590314179859 /* libPods-ShopApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 97C18E51B4F4860A32CE192D /* libPods-ShopApp.a */; };
 		894FEDA4DFC6C0729B82710E /* libPods-ShopApp-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EDF09BF13775E7CD4A03FA28 /* libPods-ShopApp-tvOS.a */; };
 		A2C9CE84901BC6BBBECBBB41 /* libPods-ShopApp-ShopAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FE776AEFEF76EDAAFE385E5 /* libPods-ShopApp-ShopAppTests.a */; };
+		B810B43B24B920F6001001AC /* AppCenter-Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = B810B43A24B920F6001001AC /* AppCenter-Config.plist */; };
+		B810B43C24B920F6001001AC /* AppCenter-Config.plist in Resources */ = {isa = PBXBuildFile; fileRef = B810B43A24B920F6001001AC /* AppCenter-Config.plist */; };
 		DE80082C1EB44D78B695E19B /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AD9CCADE69994D679AAA0DA2 /* OpenSans-Regular.ttf */; };
 /* End PBXBuildFile section */
 
@@ -60,11 +62,12 @@
 		35F7A7BD745200516472BE42 /* Pods-ShopApp-ShopAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopApp-ShopAppTests.release.xcconfig"; path = "Target Support Files/Pods-ShopApp-ShopAppTests/Pods-ShopApp-ShopAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		3B2EB6858C27D053BA3072D8 /* Pods-ShopApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopApp.release.xcconfig"; path = "Target Support Files/Pods-ShopApp/Pods-ShopApp.release.xcconfig"; sourceTree = "<group>"; };
 		6A19EED758CD31E8B739494F /* libPods-ShopApp-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ShopApp-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		91AE10AEDBEB45239DFD14E3 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Bold.ttf"; path = "../assets/fonts/OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		91AE10AEDBEB45239DFD14E3 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Bold.ttf"; path = "../assets/fonts/OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		97C18E51B4F4860A32CE192D /* libPods-ShopApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ShopApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		99E205500178BC8466543CD5 /* Pods-ShopApp-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopApp-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-ShopApp-tvOS/Pods-ShopApp-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
 		9FC3780B17DD161A92F73678 /* Pods-ShopApp-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopApp-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-ShopApp-tvOSTests/Pods-ShopApp-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		AD9CCADE69994D679AAA0DA2 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Regular.ttf"; path = "../assets/fonts/OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		AD9CCADE69994D679AAA0DA2 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "OpenSans-Regular.ttf"; path = "../assets/fonts/OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		B810B43A24B920F6001001AC /* AppCenter-Config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "AppCenter-Config.plist"; path = "ShopApp/AppCenter-Config.plist"; sourceTree = "<group>"; };
 		BE234873DF2C93A11290735A /* Pods-ShopApp-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopApp-tvOS.release.xcconfig"; path = "Target Support Files/Pods-ShopApp-tvOS/Pods-ShopApp-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		C039F3FB9611D73A7F24DFEC /* Pods-ShopApp-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShopApp-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-ShopApp-tvOSTests/Pods-ShopApp-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -133,12 +136,12 @@
 				AD9CCADE69994D679AAA0DA2 /* OpenSans-Regular.ttf */,
 			);
 			name = Resources;
-			path = "";
 			sourceTree = "<group>";
 		};
 		13B07FAE1A68108700A75B9A /* ShopApp */ = {
 			isa = PBXGroup;
 			children = (
+				B810B43A24B920F6001001AC /* AppCenter-Config.plist */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -175,7 +178,6 @@
 				C039F3FB9611D73A7F24DFEC /* Pods-ShopApp-tvOSTests.debug.xcconfig */,
 				9FC3780B17DD161A92F73678 /* Pods-ShopApp-tvOSTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -348,6 +350,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B810B43C24B920F6001001AC /* AppCenter-Config.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,6 +359,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				B810B43B24B920F6001001AC /* AppCenter-Config.plist in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				2CE4B1B7AB2142D0BD0F8FA1 /* OpenSans-Bold.ttf in Resources */,
 				DE80082C1EB44D78B695E19B /* OpenSans-Regular.ttf in Resources */,
