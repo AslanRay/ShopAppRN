@@ -34,7 +34,8 @@
     "react-native-screens": "^2.8.0",
     "react-native-vector-icons": "^7.0.0",
     "react-redux": "^7.2.0",
-    "redux": "^4.0.5"
+    "redux": "^4.0.5",
+    "smartlook-react-native-wrapper": "^0.31.0"
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",

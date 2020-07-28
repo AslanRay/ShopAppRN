@@ -328,6 +328,10 @@ PODS:
     - React
   - RNVectorIcons (7.0.0):
     - React
+  - Smartlook (1.4.1)
+  - smartlook-react-native-bridge (0.31.0):
+    - React
+    - Smartlook (>= 1.4.1)
   - Yoga (1.14.0)
   - YogaKit (1.18.1):
     - Yoga (~> 1.14)
@@ -390,6 +394,7 @@ DEPENDENCIES:
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
+  - smartlook-react-native-bridge (from `../node_modules/smartlook-react-native-wrapper`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -408,6 +413,7 @@ SPEC REPOS:
     - FlipperKit
     - JKBigInteger2
     - OpenSSL-Universal
+    - Smartlook
     - YogaKit
 
 EXTERNAL SOURCES:
@@ -481,6 +487,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-screens"
   RNVectorIcons:
     :path: "../node_modules/react-native-vector-icons"
+  smartlook-react-native-bridge:
+    :path: "../node_modules/smartlook-react-native-wrapper"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -534,6 +542,8 @@ SPEC CHECKSUMS:
   RNReanimated: b5ccb50650ba06f6e749c7c329a1bc3ae0c88b43
   RNScreens: c526239bbe0e957b988dacc8d75ac94ec9cb19da
   RNVectorIcons: da6fe858f5a65d7bbc3379540a889b0b12aa5976
+  Smartlook: a83db121ff758fef7c5353bab64046a40dd85f82
+  smartlook-react-native-bridge: 95c1a31644331f4e05bcb5c38f60e0a6e9b647a9
   Yoga: 3ebccbdd559724312790e7742142d062476b698e
   YogaKit: f782866e155069a2cca2517aafea43200b01fd5a
 
