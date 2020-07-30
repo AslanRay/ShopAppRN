@@ -2,7 +2,7 @@ import React, { useLayoutEffect } from 'react';
 import { FlatList } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import Proptype from 'prop-types';
-import Analytics from 'appcenter-analytics';
+import Analytics from '@segment/analytics-react-native';
 import { addToCart } from '../../redux/cart';
 import ProductItem from '../../components/shop/ProductItem.tsx';
 import CartHeaderButton from '../../components/ui/HeaderButton';
@@ -30,7 +30,8 @@ const ProductOverviewScreen = ({ navigation }) => {
             productTitle: itemData.item.title,
           })}
           onAddToCart={() => {
-            Analytics.trackEvent('ITEM ADDED TO CART', { itemName: itemData.item.title });
+            Analytics.screen('Product overview');
+            Analytics.track('ITEM ADDED TO CART', { itemName: itemData.item.title });
             dispatch(addToCart(itemData.item));
           }}
           isProductOverViewScreen
